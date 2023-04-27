@@ -1,0 +1,28 @@
+name: component-a
+title: Component A
+start_page: index.adoc
+asciidoc:
+  attributes:
+    source-language: asciidoc@
+    table-caption: false
+nav:
+- modules/ROOT/nav.adoc
+
+#name: ROOT
+#title: Getting Started Guides
+#version: 'master'
+#nav:
+#- modules/ROOT/nav.adoc
+
+#site:
+#  title: Mi sitio de documentación
+#  description: Bienvenido a mi sitio de documentación
+#  locales:
+#    en:
+#      lang: en
+#      hreflang: en-US
+#      title: My documentation site
+#    es:
+#      lang: es
+#      hreflang: es-ES
+#      title: Mi sitio de documentación

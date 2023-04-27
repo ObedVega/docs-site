@@ -1,0 +1,8 @@
+= This is a test
+:experimental:
+:page-author: Obed Vega
+:page-email: obed.vega@teradata.com
+:page-revdate: August 2nd, 2022
+:description: Teradata Vantage Native Object Storage - read and write from/to object storage, unified SQL interface for Vantage and object storage.
+:keywords: Data warehouses, Compute storage separation, Teradata, vantage, cloud data platform, object storage, business intelligence, enterprise analytics, parquet, create parquet files
+:category: Tutorial
