@@ -1,13 +1,26 @@
-name: component-a
-title: Component A
-start_page: index.adoc
+name: test
+title: Test Docs
+version: 1.5.6
+start_page: en/index.adoc
+nav:
+- modules/ROOT/nav.adoc
+site:
+  locales:
+    en:
+      start_page: modules/ROOT/pages/en/index.adoc
+      lang: en
+      hreflang: en-US
+      title: English
+    es:
+      start_page: modules/ROOT/pages/es/index.adoc
+      lang: es
+      hreflang: es-ES
+      title: Español
 asciidoc:
   attributes:
     source-language: asciidoc@
     table-caption: false
-nav:
-- modules/ROOT/nav.adoc
-
+    locale-path: ${site.locales[context.locale].path}
 #name: ROOT
 #title: Getting Started Guides
 #version: 'master'

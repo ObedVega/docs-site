@@ -1,2 +1,4 @@
-* Manage data
-** xref::index.adoc[]
+* My Navigation Menu
+
+** xref:${site.locales[context.locale].path}/index.adoc[]
+
