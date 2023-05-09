@@ -1,0 +1,2 @@
+:lang-es: es
+:lang-en: en

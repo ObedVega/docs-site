@@ -1,41 +1,26 @@
-name: test
-title: Test Docs
-version: 1.5.6
-start_page: en/index.adoc
+name: my-docs
+title: My Documentation
+version: 'master'
+site:
+  attributes:
+    html_lang:
+      en: en
+      es: es
 nav:
 - modules/ROOT/nav.adoc
-site:
-  locales:
-    en:
-      start_page: modules/ROOT/pages/en/index.adoc
-      lang: en
-      hreflang: en-US
-      title: English
-    es:
-      start_page: modules/ROOT/pages/es/index.adoc
-      lang: es
-      hreflang: es-ES
-      title: Español
-asciidoc:
-  attributes:
-    source-language: asciidoc@
-    table-caption: false
-    locale-path: ${site.locales[context.locale].path}
-#name: ROOT
-#title: Getting Started Guides
-#version: 'master'
-#nav:
-#- modules/ROOT/nav.adoc
-
-#site:
-#  title: Mi sitio de documentación
-#  description: Bienvenido a mi sitio de documentación
-#  locales:
-#    en:
-#      lang: en
-#      hreflang: en-US
-#      title: My documentation site
-#    es:
-#      lang: es
-#      hreflang: es-ES
-#      title: Mi sitio de documentación
+start_page: en/index.adoc
+content:
+  - sources:
+      - url: page/en
+        branches: ['master']
+        start_path: index.adoc
+        languages: en
+        attributes:
+          lang: en
+  - sources:
+      - url: page/es
+        branches: ['master']
+        start_path: index.adoc
+        languages: es
+        attributes:
+          lang: es

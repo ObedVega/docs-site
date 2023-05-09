@@ -1,4 +1,11 @@
-* My Navigation Menu
+ifdef::lang[en]
+* xref:en/index.adoc[Home]
+* xref:en/page1.adoc[Page One]
+* xref:en/page2.adoc[Page Two]
+ endif::[]
 
-** xref:${site.locales[context.locale].path}/index.adoc[]
-
+ifdef::lang[es]
+* xref:es/index.adoc[Home]
+* xref:es/page1.adoc[Page One]
+* xref:es/page2.adoc[Page Two]
+ endif::[]
