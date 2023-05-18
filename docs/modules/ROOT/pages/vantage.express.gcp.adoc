@@ -131,4 +131,3 @@ gcloud compute firewall-rules delete vantage-express
 == Further reading
 * link:https://docs.teradata.com/r/KEoAHNnh~EbZLtVJNRo0Sg/root[Teradata® Studio™ and Studio™ Express Installation Guide]
 * link:https://docs.teradata.com/r/jmAxXLdiDu6NiyjT6hhk7g/root[Introduction to BTEQ]
-
