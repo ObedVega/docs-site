@@ -5,6 +5,5 @@ version: 'master'
 
 nav:
   - modules/ROOT/nav.adoc
-  - modules/es/nav.adoc
 
  
