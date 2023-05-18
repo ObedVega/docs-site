@@ -1,0 +1,9 @@
+name: docs
+title: Guias Getting Started
+language: es
+version: 2.0
+
+nav:
+  - modules/ROOT/nav.adoc
+
+ 

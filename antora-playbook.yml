@@ -6,7 +6,7 @@ content:
   - url: https://github.com/ObedVega/docs-site.git
     branches: [1.0, 2.0]
     #start_path: modules
-   # start_path: DOCS-SITE
+    start_path: docs
 
 #    branches: HEAD
 #    edit_url: '{web_url}/blob/{refname}/{path}'
