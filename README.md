@@ -1,5 +1,5 @@
-# docs-site
+== Instrucciones
 Antora
 
-#Ejecuta esto en la raiz docs-site
+# Ejecuta esto en la raiz docs-site
 antora antora-playbook.yml
