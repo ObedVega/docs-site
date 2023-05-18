@@ -1,7 +1,7 @@
 name: docs
 title: Getting Started Guides
 language: en
-version: 'main'
+version: 2.0
 
 nav:
   - modules/ROOT/nav.adoc
