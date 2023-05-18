@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Run Vantage Express on Google Cloud :: Teradata Getting Started</title>
+    <meta name="description" content="Run Vantage Express on Google Cloud.">
+    <meta name="keywords" content="data warehouses, compute storage separation, teradata, vantage, cloud data platform, object storage, business intelligence, enterprise analytics">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="..">Teradata Getting Started</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Getting Started Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">No sirven los if&#8217;s</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">Nooo sirven los if&#8217;s</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">El valor de siteVersionName es: :siteVersionName:</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Getting Started Guides</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Getting Started Guides</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Getting Started Guides</a></li>
+    <li><a href="vantage.express.gcp.html">Run Vantage Express on Google Cloud</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///C:/Users/OV250003/desktop/docs-site/modules/ROOT/pages/vantage.express.gcp.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Run Vantage Express on Google Cloud</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This how-to demonstrates how to run Vantage Express in Google Cloud Platform. Vantage Express contains a fully functional Teradata SQL Engine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If do not wish to pay for cloud usage you can install Vantage Express locally using <a href="getting.started.vmware.adoc">VMware</a>, <a href="getting.started.vbox">VirtualBox</a>, <a href="getting.started.utm">UTM</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A Google Cloud account.</p>
+</li>
+<li>
+<p><code>gcloud</code> command line utility installed on your machine. You can find installation instructions here: <a href="https://cloud.google.com/sdk/docs/install" class="bare">https://cloud.google.com/sdk/docs/install</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Ubuntu VM with 4 CPU&#8217;s and 8GB of RAM, a 70GB balanced disk. The following command creates a VM in <code>us-central1</code> region. For best performance, replace the  region with one that is the closest to you. For the list of supported regions see <a href="https://cloud.google.com/compute/docs/regions-zones">Google Cloud regions documentation</a>.</p>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Windows</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Run in Powershell:</p>
+</div>
+<div id="gcloud_create_vm_win" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">gcloud compute instances create teradata-vantage-express `
+  --zone=us-central1-a `
+  --machine-type=n2-custom-4-8192 `
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced `
+  --enable-nested-virtualization `
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">MacOS</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div id="gcloud_create_vm_macos" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div id="gcloud_create_vm_linux" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>ssh to your VM:</p>
+<div id="gcloud_ssh" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute ssh teradata-vantage-express --zone=us-central1-a</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Switch to <code>root</code> user:</p>
+<div id="sudo" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo -i</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Prepare the download directory for Vantage Express:</p>
+<div id="download_dir" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mkdir /opt/downloads
+cd /opt/downloads</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you would like to connect to Vantage Express from the Internet, you will need to open up firewall holes to your VM. You should also change the default password to <code>dbc</code> user:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To change the password for <code>dbc</code> user go to your VM and start bteq:</p>
+<div id="pw_change_bteq" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bteq</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Login to your database using <code>dbc</code> as username and password:</p>
+<div id="pw_change_bteq_logon" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-teradata-sql hljs" data-lang="teradata-sql">.logon localhost/dbc</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change the password for <code>dbc</code> user:</p>
+<div id="pw_change_mod_user" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-teradata-sql hljs" data-lang="teradata-sql">MODIFY USER dbc AS PASSWORD = new_password;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You can now open up port 1025 to the internet using gcloud command:</p>
+<div id="gcloud_fw_rule" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute firewall-rules create vantage-express --allow=tcp:1025 --direction=IN --target-tags=ve</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cleanup"><a class="anchor" href="#_cleanup"></a>Cleanup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To stop incurring charges, delete the VM:</p>
+</div>
+<div id="delete_vm" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances delete teradata-vantage-express --zone=us-central1-a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also, remember to remove any firewall rules that you have added, e.g.:</p>
+</div>
+<div id="delete_fw_rule" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute firewall-rules delete vantage-express</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_reading"><a class="anchor" href="#_further_reading"></a>Further reading</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.teradata.com/r/KEoAHNnh~EbZLtVJNRo0Sg/root">Teradata® Studio™ and Studio™ Express Installation Guide</a></p>
+</li>
+<li>
+<p><a href="https://docs.teradata.com/r/jmAxXLdiDu6NiyjT6hhk7g/root">Introduction to BTEQ</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

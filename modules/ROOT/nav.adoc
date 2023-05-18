@@ -1,11 +1,16 @@
-ifdef::lang[en]
-* xref:en/index.adoc[Home]
-* xref:en/page1.adoc[Page One]
-* xref:en/page2.adoc[Page Two]
- endif::[]
 
-ifdef::lang[es]
-* xref:es/index.adoc[Home]
-* xref:es/page1.adoc[Page One]
-* xref:es/page2.adoc[Page Two]
- endif::[]
+* No sirven los if's
+ifeval::["{siteVersionName}" == "en"]
+* Get access to Vantage
+** xref::run-vantage-express-on-aws.adoc[Vantage Express on AWS]
+** xref::vantage.express.gcp.adoc[Vantage Express on Google Cloud]
+endif::[]
+
+ifeval::["{siteVersionName}" == "es"]
+* Obtenga acceso a Vantage
+** xref:es:run-vantage-express-on-aws.adoc[Vantage Express en AWS]
+endif::[]
+* Nooo sirven los if's
+
+
+* El valor de siteVersionName es: :siteVersionName:

@@ -1,5 +1,0 @@
-:html_lang: es
-= Indice
-
-== Descripcion General
-The value of lang is: {antora.yml.asciidoc.attributes.lang}

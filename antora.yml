@@ -1,26 +1,10 @@
-name: my-docs
-title: My Documentation
+name: docs
+title: Getting Started Guides
+language: en
 version: 'master'
-site:
-  attributes:
-    html_lang:
-      en: en
-      es: es
+
 nav:
 - modules/ROOT/nav.adoc
-start_page: en/index.adoc
-content:
-  - sources:
-      - url: page/en
-        branches: ['master']
-        start_path: index.adoc
-        languages: en
-        attributes:
-          lang: en
-  - sources:
-      - url: page/es
-        branches: ['master']
-        start_path: index.adoc
-        languages: es
-        attributes:
-          lang: es
+
+variables:
+  siteVersionName: es
