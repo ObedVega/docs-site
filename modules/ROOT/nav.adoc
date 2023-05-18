@@ -1,16 +1,3 @@
-
-* No sirven los if's
-ifeval::["{siteVersionName}" == "en"]
 * Get access to Vantage
 ** xref::run-vantage-express-on-aws.adoc[Vantage Express on AWS]
 ** xref::vantage.express.gcp.adoc[Vantage Express on Google Cloud]
-endif::[]
-
-ifeval::["{siteVersionName}" == "es"]
-* Obtenga acceso a Vantage
-** xref:es:run-vantage-express-on-aws.adoc[Vantage Express en AWS]
-endif::[]
-* Nooo sirven los if's
-
-
-* El valor de siteVersionName es: :siteVersionName:

@@ -4,7 +4,7 @@ language: en
 version: 'master'
 
 nav:
-- modules/ROOT/nav.adoc
+  - modules/ROOT/nav.adoc
+  - modules/es/nav.adoc
 
-variables:
-  siteVersionName: es
+ 
