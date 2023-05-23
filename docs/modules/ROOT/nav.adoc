@@ -1,3 +1,0 @@
-* Get access to Vantage
-** xref::run-vantage-express-on-aws.adoc[Vantage Express on AWS]
-** xref::vantage.express.gcp.adoc[Vantage Express on Google Cloud]

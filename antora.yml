@@ -1,0 +1,24 @@
+name: docs
+title: Getting Started Guides
+version: 'master'
+attributes:
+  pageVersionName: 'en'
+nav:
+- modules/ROOT/pages/en/nav.adoc
+- modules/ROOT/pages/es/nav.adoc
+site:
+  title: My Documentation
+  #start_page: modules/ROOT/pages/en/index.adoc
+content:
+  sources:
+    - url: ./
+      branches: [main]
+      #start_path: docs/en
+      processor:
+        path: ./supplemental_ui/css/style.css
+ui:
+  bundle:
+    options:
+      lang_attribute: false
+    css:
+      - main: assets/css/styles.css  

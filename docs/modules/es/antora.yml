@@ -1,7 +1,0 @@
-name: antora-i18n
-title: Antora multilengua
-version: es
-display_version: Español
-prerelease: y
-nav:
-  - modules/ROOT/nav.adoc
