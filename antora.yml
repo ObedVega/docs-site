@@ -6,9 +6,10 @@ attributes:
 nav:
 - modules/ROOT/pages/en/nav.adoc
 - modules/ROOT/pages/es/nav.adoc
+- modules/ROOT/pages/jp/nav.adoc
 site:
   title: My Documentation
-  #start_page: modules/ROOT/pages/en/index.adoc
+  start_page: modules/ROOT/pages/en/index.adoc
 content:
   sources:
     - url: ./

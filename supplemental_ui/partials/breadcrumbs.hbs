@@ -4,7 +4,7 @@
     {{#each page.breadcrumbs}}
     <li>
     {{~#if (and ./url (eq ./urlType 'internal'))~}}
-    <a href="{{{relativize ./url}}}">{{{./content}}}</a>
+    <a href="{{{relativize ./url}}}">{{{./content}}}</a> <a href="{{{relativize ./url}}}">{{{relativize ./url}}}</a>
     {{~else~}}
     {{{./content}}}
     {{~/if~}}
