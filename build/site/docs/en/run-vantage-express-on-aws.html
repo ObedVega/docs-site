@@ -1065,9 +1065,9 @@ span.search-result-highlight {
             <div>
               <div class="header-nav-mobile__menu-item__links">
                 <ul class="ul-color">
-                  <li><a href="../en/index.html" class="dropdown-item">English</a></li>
-                  <li><a href="../es/run-vantage-express-on-aws.html" class="dropdown-item">Spanish</a></li>
-                  <li><a href="../jp/run-vantage-express-on-aws.html" class="dropdown-item">Japanese</a></li>
+                  <li onclick="miFuncion('en')"><a href="#" class="dropdown-item">English</a></li>
+                  <li onclick="miFuncion('es')"><a href="#" class="dropdown-item">Spanish</a></li>
+                  <li onclick="miFuncion('jp')"><a href="#" class="dropdown-item">Japanese</a></li>
                 </ul>
               </div>
             </div>
@@ -1081,12 +1081,24 @@ span.search-result-highlight {
   </nav>
   <div class="page-blackout" tabindex="-1" aria-hidden="true"></div>
 </header>
-<div class="body">
+<script>
+  // Tu código JavaScript aquí
+  function miFuncion(lan) {
+    // Código de la función
+    var path = document.location.href;
+    var page = path.split("/");
+    page[page.length-2] = lan;  
+    var salida = page.join('/');
+    console.log(salida);
+    window.location.href=salida; 
+  }
+</script><div class="body">
 <div class="nav-container" data-component="docs" data-version="master">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
+    Test
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -1101,8 +1113,32 @@ span.search-result-highlight {
   </li>
 </ul>
   </li>
-
-  
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Obten acceso a Vantage</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../es/run-vantage-express-on-aws.html">Vantage Express en AWS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Vantage にアクセスする</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jp/run-vantage-express-on-aws.html">Vantage Express と AWS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>

@@ -1062,9 +1062,9 @@ span.search-result-highlight {
             <div>
               <div class="header-nav-mobile__menu-item__links">
                 <ul class="ul-color">
-                  <li><a href="../en/" class="dropdown-item">English</a></li>
-                  <li><a href="../es/" class="dropdown-item">Spanish</a></li>
-                  <li><a href="../jp/" class="dropdown-item">Japanese</a></li>
+                  <li onclick="miFuncion('en')"><a href="#" class="dropdown-item">English</a></li>
+                  <li onclick="miFuncion('es')"><a href="#" class="dropdown-item">Spanish</a></li>
+                  <li onclick="miFuncion('jp')"><a href="#" class="dropdown-item">Japanese</a></li>
                 </ul>
               </div>
             </div>
@@ -1078,7 +1078,18 @@ span.search-result-highlight {
   </nav>
   <div class="page-blackout" tabindex="-1" aria-hidden="true"></div>
 </header>
-<div class="body">
+<script>
+  // Tu código JavaScript aquí
+  function miFuncion(lan) {
+    // Código de la función
+    var path = document.location.href;
+    var page = path.split("/");
+    page[page.length-2] = lan;  
+    var salida = page.join('/');
+    console.log(salida);
+    window.location.href=salida; 
+  }
+</script><div class="body">
 <div class="nav-container">
   <aside class="nav">
     <div class="panels">
