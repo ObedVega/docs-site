@@ -1,0 +1,134 @@
+= Google Cloud で Vantage Express を実行する
+:page-author: Adam Tworkiewicz
+:page-email: adam.tworkiewicz@teradata.com
+:page-revdate: 2022 年 8 月 23 日
+:description: Google Cloud で Vantage Express を実行します。
+:keywords: データ ウェアハウス、コンピューティング ストレージの分離、teradata、vantage、クラウド データ プラットフォーム、オブジェクト ストレージ、ビジネス インテリジェンス、エンタープライズ分析
+:tabs:
+:experimental:
+
+== 概要
+
+このハウツーでは、Google Cloud Platform で Vantage Express を実行する方法を説明します。Vantage Express には、完全に機能する Teradata SQL エンジンが含まれています。
+
+NOTE: クラウドの使用料を支払いたくない場合は、 link:getting.started.vmware.adoc[VMware]、 link:getting.started.vbox[VirtualBox]、 link:getting.started.utm[UTM]を使用して Vantage Express をローカルにインストールできます。
+
+== 前提条件
+
+. Google Cloud アカウント。
+. `gcloud` コマンドラインユーティリティがマシンにインストールされています。インストール手順は https://cloud.google.com/sdk/docs/installにあります。
+
+
+== インストール
+
+. 4 つの CPU と 8 GB の RAM、70 GB のバランス ディスクを備えた Ubuntu VM を作成します。次のコマンドは、 `us-central1` リージョンに VM を作成します。最高のパフォーマンスを得るには、  リージョンを最も近いリージョンに置き換えてください。サポートされているリージョンのリストについては、 link:https://cloud.google.com/compute/docs/regions-zones[Google Cloud リージョンのドキュメント]をご覧ください。
++
+[tabs]
+====
+Windows::
++
+--
+Powershell で実行します。
+[source, powershell, role="content-editable emits-gtm-events", id="gcloud_create_vm_win"]
+----
+gcloud compute instances create teradata-vantage-express `
+  --zone=us-central1-a `
+  --machine-type=n2-custom-4-8192 `
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced `
+  --enable-nested-virtualization `
+  --tags=ve
+----
+--
+MacOS::
++
+--
+[source, bash, role="content-editable emits-gtm-events", id="gcloud_create_vm_macos"]
+----
+gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve
+----
+--
+Linux::
++
+--
+[source, bash, role="content-editable emits-gtm-events", id="gcloud_create_vm_linux"]
+----
+gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve
+----
+--
+====
+. VM に ssh で接続します。
++
+[source, bash, role="content-editable emits-gtm-events", id="gcloud_ssh"]
+----
+gcloud compute ssh teradata-vantage-express --zone=us-central1-a
+----
+.  `root` ユーザーに切り替えます:
++
+[source, bash, role="content-editable emits-gtm-events", id="sudo"]
+----
+sudo -i
+----
+. Vantage Express のダウンロード ディレクトリを準備します。
++
+[source, bash, role="content-editable emits-gtm-events", id="download_dir"]
+----
+mkdir /opt/downloads
+cd /opt/downloads
+----
+#include::partial$install.ve.in.public.cloud.adoc[]
+* インターネットから Vantage Express に接続したい場合は、VM へのファイアウォール ホールを開く必要があります。また、デフォルトのパスワードを `dbc` ユーザーに変更する必要があります:
+.  `dbc` ユーザーのパスワードを変更するには、VM に移動して bteq を開始します:
++
+[source, bash, role="content-editable emits-gtm-events", id="pw_change_bteq"]
+----
+bteq
+----
+. ユーザー名とパスワードとして `dbc` を使用してデータベースにログインします:
++
+[source, teradata-sql, role="content-editable emits-gtm-events", id="pw_change_bteq_logon"]
+----
+.logon localhost/dbc
+----
+.  `dbc` ユーザーのパスワードを変更します:
++
+[source, teradata-sql, role="content-editable emits-gtm-events", id="pw_change_mod_user"]
+----
+MODIFY USER dbc AS PASSWORD = new_password;
+----
+. gcloud コマンドを使用して、ポート 1025 をインターネットに開くことができるようになりました。
++
+[source%prewrap, bash, role="content-editable emits-gtm-events", id="gcloud_fw_rule"]
+----
+gcloud compute firewall-rules create vantage-express --allow=tcp:1025 --direction=IN --target-tags=ve
+----
+
+== 掃除
+
+料金の発生を停止するには、VM を削除します。
+[source, bash, role="content-editable emits-gtm-events", id="delete_vm"]
+----
+gcloud compute instances delete teradata-vantage-express --zone=us-central1-a
+----
+
+また、追加したファイアウォール ルールを必ず削除してください。例:
+[source, bash, role="content-editable emits-gtm-events", id="delete_fw_rule"]
+----
+gcloud compute firewall-rules delete vantage-express
+----
+
+#include::partial$next.steps.adoc[]
+
+== 参考文献
+* link:https://docs.teradata.com/r/Teradata-StudioTM-and-StudioTM-Express-Installation-Guide-17.20[Teradata® Studio™ および Studio™ Express インストール ガイド]
+* link:https://docs.teradata.com/r/jmAxXLdiDu6NiyjT6hhk7g/root[BTEQ の概要]
+

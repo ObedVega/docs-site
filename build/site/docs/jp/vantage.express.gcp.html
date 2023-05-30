@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ejecuta Vantage Express en AWS :: Teradata Getting Started</title>
-    <link rel="canonical" href="https://quickstarts.teradata.com/docs/es/run-vantage-express-on-aws.html">
-    <meta name="description" content="Run Vantage Express on AWS.">
-    <meta name="keywords" content="data warehouses, compute storage separation, teradata, vantage, cloud data platform, object storage, business intelligence, enterprise analytics, AWS">
+    <title>Google Cloud で Vantage Express を実行する :: Teradata Getting Started</title>
+    <link rel="canonical" href="https://quickstarts.teradata.com/docs/jp/vantage.express.gcp.html">
+    <meta name="description" content="Google Cloud で Vantage Express を実行します。">
+    <meta name="keywords" content="データ ウェアハウス、コンピューティング ストレージの分離、teradata、vantage、クラウド データ プラットフォーム、オブジェクト ストレージ、ビジネス インテリジェンス、エンタープライズ分析">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
-<meta property="og:title" content="Ejecuta Vantage Express en AWS :: Teradata Getting Started">
+<meta property="og:title" content="Google Cloud で Vantage Express を実行する :: Teradata Getting Started">
 <meta property="og:type" content="article" />
-<meta property="og:description" content="Run Vantage Express on AWS." />
+<meta property="og:description" content="Google Cloud で Vantage Express を実行します。" />
 <meta property="og:site_name" content="Teradata Getting Started">
 <meta property="og:image:height" content="336"/>
 <meta property="og:image" content="https://www.teradata.com/Content/Assets/default/teradata-logo-social.png">
-<meta property="og:url" content="https://quickstarts.teradata.com/docs/es/run-vantage-express-on-aws.html">
+<meta property="og:url" content="https://quickstarts.teradata.com/docs/jp/vantage.express.gcp.html">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="https://www.teradata.com/Content/Assets/default/teradata-logo-social.png" />
@@ -1192,42 +1192,33 @@ span.search-result-highlight {
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="run-vantage-express-on-aws.html">Ejecuta Vantage Express en AWS</a> <a href="run-vantage-express-on-aws.html">run-vantage-express-on-aws.html</a></li>
+    <li><a href="vantage.express.gcp.html">Google Cloud で Vantage Express を実行する</a> <a href="vantage.express.gcp.html">vantage.express.gcp.html</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///C:/Users/OV250003/desktop/docs-site/modules/ROOT/pages/es/run-vantage-express-on-aws.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///C:/Users/OV250003/desktop/docs-site/modules/ROOT/pages/jp/vantage.express.gcp.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Ejecuta Vantage Express en AWS</h1>
+<h1 class="page">Google Cloud で Vantage Express を実行する</h1>
 <p>Author: <a href="mailto:adam.tworkiewicz@teradata.com">Adam Tworkiewicz</a><br/>
-Last updated: August 23rd, 2022</p>
+Last updated: 2022 年 8 月 23 日</p>
 <div class="sect1">
-<h2 id="spanishdescripcion"><a class="anchor" href="#spanishdescripcion"></a>Descripcion</h2>
+<h2 id="_概要"><a class="anchor" href="#_概要"></a>概要</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This how-to demonstrates how to run Vantage Express on AWS. Vantage Express is a small footprint configuration that contains a fully functional Teradata SQL Engine.</p>
+<p>このハウツーでは、Google Cloud Platform で Vantage Express を実行する方法を説明します。Vantage Express には、完全に機能する Teradata SQL エンジンが含まれています。</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Cloud charges</div>
-<div class="paragraph">
-<p>Vantage Express is distributed as a virtual machine image. This how-to uses the EC2 <code>c5n.metal</code> instance type. It&#8217;s a bare metal instance that costs over $3/h.</p>
-</div>
-<div class="paragraph">
-<p>If you want a cheaper option, try <a href="vantage-express.gcp.adoc">Google Cloud</a> and <a href="run-vantage-express-on-microsoft-azure.adoc">Azure</a> which support nested virtualization and can run Vantage Express on cheap VM&#8217;s.</p>
-</div>
-<div class="paragraph">
-<p>If you do not wish to pay for cloud usage at all, install Vantage Express locally using <a href="getting.started.vmware.adoc">VMware</a>, <a href="getting.started.vbox">VirtualBox</a>.</p>
-</div>
+クラウドの使用料を支払いたくない場合は、 <a href="getting.started.vmware.adoc">VMware</a>、 <a href="getting.started.vbox">VirtualBox</a>、 <a href="getting.started.utm">UTM</a>を使用して Vantage Express をローカルにインストールできます。
 </td>
 </tr>
 </table>
@@ -1235,189 +1226,100 @@ Last updated: August 23rd, 2022</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="spanishprerequisitos"><a class="anchor" href="#spanishprerequisitos"></a>Prerequisitos</h2>
+<h2 id="_前提条件"><a class="anchor" href="#_前提条件"></a>前提条件</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>An AWS account. If you need to create a new account follow <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">the official AWS instructions</a>.</p>
+<p>Google Cloud アカウント。</p>
 </li>
 <li>
-<p><code>awscli</code> command line utility installed and configured on your machine. You can find installation instructions here: <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" class="bare">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a>.</p>
+<p><code>gcloud</code> コマンドラインユーティリティがマシンにインストールされています。インストール手順は <a href="https://cloud.google.com/sdk/docs/installにあります。" class="bare">https://cloud.google.com/sdk/docs/installにあります。</a></p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="spanishinstalacion"><a class="anchor" href="#spanishinstalacion"></a>Instalacion</h2>
+<h2 id="_インストール"><a class="anchor" href="#_インストール"></a>インストール</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>You will need a VPC with an Internet-facing subnet. If you don&#8217;t have one available, here is how you can create it:</p>
-<div class="listingblock">
+<p>4 つの CPU と 8 GB の RAM、70 GB のバランス ディスクを備えた Ubuntu VM を作成します。次のコマンドは、 <code>us-central1</code> リージョンに VM を作成します。最高のパフォーマンスを得るには、  リージョンを最も近いリージョンに置き換えてください。サポートされているリージョンのリストについては、 <a href="https://cloud.google.com/compute/docs/regions-zones">Google Cloud リージョンのドキュメント</a>をご覧ください。</p>
+<div class="exampleblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Copied from https://cloudaffaire.com/how-to-create-a-custom-vpc-using-aws-cli/
-
-# Create VPC
-AWS_VPC_ID=$(aws ec2 create-vpc \
-  --cidr-block 10.0.0.0/16 \
-  --query 'Vpc.{VpcId:VpcId}' \
-  --output text)
-
-# Enable DNS hostname for your VPC
-aws ec2 modify-vpc-attribute \
-  --vpc-id $AWS_VPC_ID \
-  --enable-dns-hostnames "{\"Value\":true}"
-
-# Create a public subnet
-AWS_SUBNET_PUBLIC_ID=$(aws ec2 create-subnet \
-  --vpc-id $AWS_VPC_ID --cidr-block 10.0.1.0/24 \
-  --query 'Subnet.{SubnetId:SubnetId}' \
-  --output text)
-
-# Enable Auto-assign Public IP on Public Subnet
-aws ec2 modify-subnet-attribute \
-  --subnet-id $AWS_SUBNET_PUBLIC_ID \
-  --map-public-ip-on-launch
-
-# Create an Internet Gateway
-AWS_INTERNET_GATEWAY_ID=$(aws ec2 create-internet-gateway \
-  --query 'InternetGateway.{InternetGatewayId:InternetGatewayId}' \
-  --output text)
-
-# Attach Internet gateway to your VPC
-aws ec2 attach-internet-gateway \
-  --vpc-id $AWS_VPC_ID \
-  --internet-gateway-id $AWS_INTERNET_GATEWAY_ID
-
-# Create a route table
-AWS_CUSTOM_ROUTE_TABLE_ID=$(aws ec2 create-route-table \
-  --vpc-id $AWS_VPC_ID \
-  --query 'RouteTable.{RouteTableId:RouteTableId}' \
-  --output text )
-
-# Create route to Internet Gateway
-aws ec2 create-route \
-  --route-table-id $AWS_CUSTOM_ROUTE_TABLE_ID \
-  --destination-cidr-block 0.0.0.0/0 \
-  --gateway-id $AWS_INTERNET_GATEWAY_ID \
-  --output text
-
-# Associate the public subnet with route table
-AWS_ROUTE_TABLE_ASSOID=$(aws ec2 associate-route-table  \
-  --subnet-id $AWS_SUBNET_PUBLIC_ID \
-  --route-table-id $AWS_CUSTOM_ROUTE_TABLE_ID \
-  --output text | head -1)
-
-# Create a security group
-aws ec2 create-security-group \
-  --vpc-id $AWS_VPC_ID \
-  --group-name myvpc-security-group \
-  --description 'My VPC non default security group'
-  --output text
-
-# Get security group ID's
-AWS_DEFAULT_SECURITY_GROUP_ID=$(aws ec2 describe-security-groups \
-  --filters "Name=vpc-id,Values=$AWS_VPC_ID" \
-  --query 'SecurityGroups[?GroupName == `default`].GroupId' \
-  --output text) &amp;&amp;
-  AWS_CUSTOM_SECURITY_GROUP_ID=$(aws ec2 describe-security-groups \
-  --filters "Name=vpc-id,Values=$AWS_VPC_ID" \
-  --query 'SecurityGroups[?GroupName == `myvpc-security-group`].GroupId' \
-  --output text)
-
-# Create security group ingress rules
-aws ec2 authorize-security-group-ingress \
-  --group-id $AWS_CUSTOM_SECURITY_GROUP_ID \
-  --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 22, "ToPort": 22, "IpRanges": [{"CidrIp": "0.0.0.0/0", "Description": "Allow SSH"}]}]' \
-  --output text
-
-# Add a tag to the VPC
-aws ec2 create-tags \
-  --resources $AWS_VPC_ID \
-  --tags "Key=Name,Value=vantage-express-vpc"
-
-# Add a tag to public subnet
-aws ec2 create-tags \
-  --resources $AWS_SUBNET_PUBLIC_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-public-subnet"
-
-# Add a tag to the Internet-Gateway
-aws ec2 create-tags \
-  --resources $AWS_INTERNET_GATEWAY_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-internet-gateway"
-
-# Add a tag to the default route table
-AWS_DEFAULT_ROUTE_TABLE_ID=$(aws ec2 describe-route-tables \
-  --filters "Name=vpc-id,Values=$AWS_VPC_ID" \
-  --query 'RouteTables[?Associations[0].Main != `false`].RouteTableId' \
-  --output text) &amp;&amp;
-  aws ec2 create-tags \
-  --resources $AWS_DEFAULT_ROUTE_TABLE_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-default-route-table"
-
-# Add a tag to the public route table
-aws ec2 create-tags \
-  --resources $AWS_CUSTOM_ROUTE_TABLE_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-public-route-table"
-
-# Add a tags to security groups
-aws ec2 create-tags \
-  --resources $AWS_CUSTOM_SECURITY_GROUP_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-security-group" &amp;&amp;
-  aws ec2 create-tags \
-  --resources $AWS_DEFAULT_SECURITY_GROUP_ID \
-  --tags "Key=Name,Value=vantage-express-vpc-default-security-group"</code></pre>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Windows</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Powershell で実行します。</p>
+</div>
+<div id="gcloud_create_vm_win" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">gcloud compute instances create teradata-vantage-express `
+  --zone=us-central1-a `
+  --machine-type=n2-custom-4-8192 `
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced `
+  --enable-nested-virtualization `
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">MacOS</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div id="gcloud_create_vm_macos" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div id="gcloud_create_vm_linux" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances create teradata-vantage-express \
+  --zone=us-central1-a \
+  --machine-type=n2-custom-4-8192 \
+  --create-disk=boot=yes,device-name=ve-disk,image-project=ubuntu-os-cloud,image-family=ubuntu-2004-lts,size=70,type=pd-balanced \
+  --enable-nested-virtualization \
+  --tags=ve</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </li>
 <li>
-<p>To create a VM you will need an ssh key pair. If you don&#8217;t have it already, create one:</p>
-<div class="listingblock">
+<p>VM に ssh で接続します。</p>
+<div id="gcloud_ssh" class="listingblock content-editable emits-gtm-events">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">aws ec2 create-key-pair --key-name vantage-key --query 'KeyMaterial' --output text &gt; vantage-key.pem</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute ssh teradata-vantage-express --zone=us-central1-a</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Restrict access to the private key. Replace <code>&lt;path_to_private_key_file&gt;</code> with the private key path returned by the previous command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">chmod 600 vantage-key.pem</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Create a Ubuntu VM with 4 CPU&#8217;s and 8GB of RAM, and a 70GB disk.</p>
-<div id="aws_create_vm_win" class="listingblock content-editable emits-gtm-events">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">AWS_INSTANCE_ID=$(aws ec2 run-instances \
-  --image-id ami-0f597975071f4c4ec \
-  --count 1 \
-  --instance-type c5n.metal \
-  --key-name vantage-key \
-  --security-group-ids $AWS_CUSTOM_SECURITY_GROUP_ID \
-  --subnet-id $AWS_SUBNET_PUBLIC_ID \
-  --query 'Instances[0].InstanceId' \
-  --output text)</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>ssh to your VM:</p>
-<div id="aws_ssh" class="listingblock content-editable emits-gtm-events">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">AWS_INSTANCE_PUBLIC_IP=$(aws ec2 describe-instances \
-  --query "Reservations[*].Instances[*].PublicIpAddress" \
-  --output=text --instance-ids $AWS_INSTANCE_ID)
-ssh -i vantage-key.pem ubuntu@$AWS_INSTANCE_PUBLIC_IP</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Once in the VM, switch to <code>root</code> user:</p>
+<p><code>root</code> ユーザーに切り替えます:</p>
 <div id="sudo" class="listingblock content-editable emits-gtm-events">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo -i</code></pre>
@@ -1425,23 +1327,26 @@ ssh -i vantage-key.pem ubuntu@$AWS_INSTANCE_PUBLIC_IP</code></pre>
 </div>
 </li>
 <li>
-<p>Prepare the download directory for Vantage Express:</p>
+<p>Vantage Express のダウンロード ディレクトリを準備します。</p>
 <div id="download_dir" class="listingblock content-editable emits-gtm-events">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mkdir /opt/downloads
 cd /opt/downloads</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>#include::partial$install.ve.in.public.cloud.adoc[]</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you would like to connect to Vantage Express from the Internet, you will need to open up firewall holes to your VM. You should also change the default password to <code>dbc</code> user:</p>
+<p>インターネットから Vantage Express に接続したい場合は、VM へのファイアウォール ホールを開く必要があります。また、デフォルトのパスワードを <code>dbc</code> ユーザーに変更する必要があります:</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>To change the password for <code>dbc</code> user go to your VM and start bteq:</p>
+<p><code>dbc</code> ユーザーのパスワードを変更するには、VM に移動して bteq を開始します:</p>
 <div id="pw_change_bteq" class="listingblock content-editable emits-gtm-events">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bteq</code></pre>
@@ -1449,7 +1354,7 @@ cd /opt/downloads</code></pre>
 </div>
 </li>
 <li>
-<p>Login to your database using <code>dbc</code> as username and password:</p>
+<p>ユーザー名とパスワードとして <code>dbc</code> を使用してデータベースにログインします:</p>
 <div id="pw_change_bteq_logon" class="listingblock content-editable emits-gtm-events">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-teradata-sql hljs" data-lang="teradata-sql">.logon localhost/dbc</code></pre>
@@ -1457,7 +1362,7 @@ cd /opt/downloads</code></pre>
 </div>
 </li>
 <li>
-<p>Change the password for <code>dbc</code> user:</p>
+<p><code>dbc</code> ユーザーのパスワードを変更します:</p>
 <div id="pw_change_mod_user" class="listingblock content-editable emits-gtm-events">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-teradata-sql hljs" data-lang="teradata-sql">MODIFY USER dbc AS PASSWORD = new_password;</code></pre>
@@ -1465,12 +1370,10 @@ cd /opt/downloads</code></pre>
 </div>
 </li>
 <li>
-<p>You can now open up port 1025 to the internet:</p>
-<div id="aws_fw_rule" class="listingblock content-editable emits-gtm-events">
+<p>gcloud コマンドを使用して、ポート 1025 をインターネットに開くことができるようになりました。</p>
+<div id="gcloud_fw_rule" class="listingblock content-editable emits-gtm-events">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">aws ec2 authorize-security-group-ingress \
-  --group-id $AWS_CUSTOM_SECURITY_GROUP_ID \
-  --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 1025, "ToPort": 1025, "IpRanges": [{"CidrIp": "0.0.0.0/0", "Description": "Allow Teradata port"}]}]'</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute firewall-rules create vantage-express --allow=tcp:1025 --direction=IN --target-tags=ve</code></pre>
 </div>
 </div>
 </li>
@@ -1479,56 +1382,39 @@ cd /opt/downloads</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="spanishlimpieza"><a class="anchor" href="#spanishlimpieza"></a>Limpieza</h2>
+<h2 id="_掃除"><a class="anchor" href="#_掃除"></a>掃除</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To stop incurring charges, delete all the resources:</p>
+<p>料金の発生を停止するには、VM を削除します。</p>
 </div>
-<div id="aws_cleanup" class="listingblock content-editable emits-gtm-events">
+<div id="delete_vm" class="listingblock content-editable emits-gtm-events">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Delete the VM
-aws ec2 terminate-instances --instance-ids $AWS_INSTANCE_ID --output text
-
-# Wait for the VM to terminate
-
-# Delete custom security group
-aws ec2 delete-security-group \
-  --group-id $AWS_CUSTOM_SECURITY_GROUP_ID
-
-# Delete internet gateway
-aws ec2 detach-internet-gateway \
-  --internet-gateway-id $AWS_INTERNET_GATEWAY_ID \
-  --vpc-id $AWS_VPC_ID &amp;&amp;
-  aws ec2 delete-internet-gateway \
-  --internet-gateway-id $AWS_INTERNET_GATEWAY_ID
-
-# Delete the custom route table
-aws ec2 disassociate-route-table \
-  --association-id $AWS_ROUTE_TABLE_ASSOID &amp;&amp;
-  aws ec2 delete-route-table \
-  --route-table-id $AWS_CUSTOM_ROUTE_TABLE_ID
-
-# Delete the public subnet
-aws ec2 delete-subnet \
-  --subnet-id $AWS_SUBNET_PUBLIC_ID
-
-# Delete the vpc
-aws ec2 delete-vpc \
-  --vpc-id $AWS_VPC_ID</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute instances delete teradata-vantage-express --zone=us-central1-a</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>また、追加したファイアウォール ルールを必ず削除してください。例:</p>
+</div>
+<div id="delete_fw_rule" class="listingblock content-editable emits-gtm-events">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gcloud compute firewall-rules delete vantage-express</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>#include::partial$next.steps.adoc[]</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="spanishotras_lecturas"><a class="anchor" href="#spanishotras_lecturas"></a>Otras lecturas</h2>
+<h2 id="_参考文献"><a class="anchor" href="#_参考文献"></a>参考文献</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.teradata.com/r/KEoAHNnh~EbZLtVJNRo0Sg/root">Teradata® Studio™ and Studio™ Express Installation Guide</a></p>
+<p><a href="https://docs.teradata.com/r/Teradata-StudioTM-and-StudioTM-Express-Installation-Guide-17.20">Teradata® Studio™ および Studio™ Express インストール ガイド</a></p>
 </li>
 <li>
-<p><a href="https://docs.teradata.com/r/jmAxXLdiDu6NiyjT6hhk7g/root">Introduction to BTEQ</a></p>
+<p><a href="https://docs.teradata.com/r/jmAxXLdiDu6NiyjT6hhk7g/root">BTEQ の概要</a></p>
 </li>
 </ul>
 </div>

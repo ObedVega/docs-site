@@ -4,9 +4,9 @@ version: 'master'
 attributes:
   pageVersionName: 'en'
 nav:
-- modules/ROOT/pages/en/nav.adoc
-- modules/ROOT/pages/es/nav.adoc
-- modules/ROOT/pages/jp/nav.adoc
+- modules/ROOT/pages/nav.adoc
+#- modules/ROOT/pages/es/nav.adoc
+#- modules/ROOT/pages/jp/nav.adoc
 site:
   title: My Documentation
   start_page: modules/ROOT/pages/en/index.adoc

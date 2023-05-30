@@ -1098,8 +1098,8 @@ span.search-result-highlight {
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    Test
-<ul class="nav-list">
+    <div id="en" style="visibility: hidden; display:none">
+      <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -1109,40 +1109,66 @@ span.search-result-highlight {
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="run-vantage-express-on-aws.html">Vantage Express on AWS</a>
   </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Obten acceso a Vantage</span>
-<ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../es/run-vantage-express-on-aws.html">Vantage Express en AWS</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Vantage にアクセスする</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../jp/run-vantage-express-on-aws.html">Vantage Express と AWS</a>
+    <a class="nav-link" href="vantage.express.gcp.html">Vantage Express on Google Cloud</a>
   </li>
 </ul>
   </li>
 </ul>
   </li>
 </ul>
+    </div>
+    <ul class="nav-list">
+        
+<li class="nav-item is-active is-current-path" id="es" style="visibility: hidden; display:none" data-depth="0">
+  <ul class="nav-list">
+    <li class="nav-item is-active" data-depth="1">
+      <button class="nav-item-toggle"></button>
+      <span class="nav-text" style="cursor: pointer;">Obten acceso a Vantage</span>
+      <ul class="nav-list">
+        <li class="nav-item is-current-page" data-depth="2">
+          <a class="nav-link" href="../es/run-vantage-express-on-aws.html">Vantage Express en AWS</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+              <li class="nav-item is-active is-current-path" id="jp" style="visibility: hidden; display:none" data-depth="0">
+        <ul class="nav-list">
+          <li class="nav-item is-active is-current-path" data-depth="1">
+            <button class="nav-item-toggle"></button>
+            <span class="nav-text" style="cursor: pointer;">Vantage にアクセスする</span>
+            <ul class="nav-list">
+              <li class="nav-item" data-depth="2">
+                <a class="nav-link" href="../jp/run-vantage-express-on-aws.html">Vantage Express と AWS</a>
+              </li>
+              <li class="nav-item" data-depth="2">
+                <a class="nav-link" href="../jp/vantage.express.gcp.html">Vantage Express と GCP</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 </div>
-<div class="nav-panel-explore" data-panel="explore">
+
+<script>
+  var path = document.location.href;
+  var language = path.match(/\/(en|es|jp)\//)[1];
+  document.getElementById(language).style.visibility = 'visible';
+  document.getElementById(language).style.display = 'block';
+  var parts = path.split('/');
+  var pagina = parts[parts.length-1];
+  
+  var elementosMenu = document.querySelectorAll('.nav-item a');
+  elementosMenu.forEach(function(elemento) {
+    if (elemento.href === path) {
+      elemento.parentNode.classList.add('is-current-page');
+    }
+  });
+</script><div class="nav-panel-explore" data-panel="explore">
   <div class="context" style="visibility: hidden;">
     <span class="title">Getting Started Guides</span>
     <span class="version">master</span>

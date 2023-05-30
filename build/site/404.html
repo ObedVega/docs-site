@@ -1093,7 +1093,22 @@ span.search-result-highlight {
 <div class="nav-container">
   <aside class="nav">
     <div class="panels">
-<div class="nav-panel-explore is-active" data-panel="explore">
+
+<script>
+  var path = document.location.href;
+  var language = path.match(/\/(en|es|jp)\//)[1];
+  document.getElementById(language).style.visibility = 'visible';
+  document.getElementById(language).style.display = 'block';
+  var parts = path.split('/');
+  var pagina = parts[parts.length-1];
+  
+  var elementosMenu = document.querySelectorAll('.nav-item a');
+  elementosMenu.forEach(function(elemento) {
+    if (elemento.href === path) {
+      elemento.parentNode.classList.add('is-current-page');
+    }
+  });
+</script><div class="nav-panel-explore is-active" data-panel="explore">
   <ul class="components">
     <li class="component">
       <a class="title" href="/docs/index.html">Getting Started Guides</a>
