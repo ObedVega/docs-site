@@ -1083,10 +1083,11 @@ span.search-result-highlight {
   function miFuncion(lan) {
     // Código de la función
     var path = document.location.href;
+    alert(path);
     var page = path.split("/");
     page[page.length-2] = lan;  
     var salida = page.join('/');
-    console.log(salida);
+    alert(salida);
     window.location.href=salida; 
   }
 </script><div class="body">
