@@ -1079,15 +1079,11 @@ span.search-result-highlight {
   <div class="page-blackout" tabindex="-1" aria-hidden="true"></div>
 </header>
 <script>
-  // Tu código JavaScript aquí
   function miFuncion(lan) {
-    // Código de la función
     var path = document.location.href;
-    alert(path);
     var page = path.split("/");
     page[page.length-2] = lan;  
     var salida = page.join('/');
-    alert(salida);
     window.location.href=salida; 
   }
 </script><div class="body">
