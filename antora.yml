@@ -9,7 +9,7 @@ nav:
 #- modules/ROOT/pages/jp/nav.adoc
 site:
   title: My Documentation
-  start_page: modules/ROOT/pages/en/index.adoc
+  start_page: modules/ROOT/pages/en/ 
 content:
   sources:
     - url: ./
