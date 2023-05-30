@@ -1082,7 +1082,12 @@ span.search-result-highlight {
   function miFuncion(lan) {
     var path = document.location.href;
     var page = path.split("/");
-    page[page.length-2] = lan;  
+    //page[page.length-2] = lan;  
+    if( page[page.length-2] == "en" || page[page.length-2] == "es" || page[page.length-2] == "jp" ) {
+      page[page.length-2] = lan;  
+    }else{
+      arr.splice(page.length-2, 0, lan);  
+    }
     var salida = page.join('/');
     window.location.href=salida; 
   }
